@@ -1,7 +1,7 @@
 package js.npm.express;
 
 import js.support.Callback;
-
+import haxe.extern.Rest;
 import js.npm.express.Middleware;
 
 extern class Application
@@ -19,7 +19,7 @@ extends MiddlewareHttp
 	function engine( ext : String , engine : ViewEngine ) : Application;
 	function set( setting : String , value : Dynamic ) : Application;
 
-	@:overload( function ( path : Route, f : haxe.extern.Rest<AbstractMiddleware> ) : Application {} )
-	@:overload( function ( f : haxe.extern.Rest<AbstractMiddleware> ) : Application {} )
+	@:overload( function ( path : Route, f : Rest<AbstractMiddleware> ) : Application {} )
+	@:overload( function ( f : Rest<AbstractMiddleware> ) : Application {} )
 	function get( setting : String ): Dynamic;
 }

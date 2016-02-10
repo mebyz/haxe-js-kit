@@ -137,11 +137,13 @@ typedef ModelMapReduce = {
 	map : Void->Void,
 	reduce : String->Array<Dynamic>->Void,
 	?query : {},
+	?sort : {},
 	?limit : Int,
 	?keeptemp : Bool,
 	?finalize : Void->Void,
 	?scope : {},
 	?jsMode : Bool,
 	?verbose : Bool,
+	?readPreference : String,
 	?out : {}
 }

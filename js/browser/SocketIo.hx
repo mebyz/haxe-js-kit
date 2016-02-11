@@ -5,6 +5,9 @@ import js.npm.socketio.Listener;
 //import js.npm.socketio.Socket;
 //import js.npm.socketio.Namespace;
 
+import js.node.events.EventEmitter.Event;
+import haxe.Constraints.Function;
+
 @:native("io")
 extern
 class SocketIo {
@@ -48,14 +51,14 @@ class Socket implements Dynamic{
   public function disconnect() : Socket;
 
   // from js.Node.NodeEventEmitter
-  public function addListener(event:String,fn: Listener ):Dynamic;
-  public function on(event:String,fn:Listener):Dynamic;
-  public function once(event:String,fn:Listener):Void;
-  public function removeListener(event:String,listener:Listener):Void;
-  public function removeAllListeners(event:String):Void;
-  public function listeners(event:String):Array<Listener>;
+  public function addListener<T:Function>(event:Event<T>,fn:T):Dynamic;
+  public function on<T:Function>(event:Event<T>,fn:T):Dynamic;
+  public function once<T:Function>(event:Event<T>,fn:T):Void;
+  public function removeListener<T:Function>(event:Event<T>,listener:T):Void;
+  public function removeAllListeners<T:Function>(event:Event<T>):Void;
+  public function listeners<T:Function>(event:Event<T>):Array<T>;
   public function setMaxListeners(m:Int):Void;
-  public function emit(event:String,?arg1:Dynamic,?arg2:Dynamic,?arg3:Dynamic):Void;
+  public function emit<T:Function>(event:Event<T>,args:haxe.extern.Rest<Dynamic>):Void;
 }
 
 /*extern

@@ -1,7 +1,6 @@
 package test;
 
 import js.npm.mongoose.macro.Model;
-import js.npm.Mongoose.mongoose;
 
 typedef StuffData = {
 	test : String,
@@ -24,7 +23,9 @@ class MongooseTest implements util.Async {
 
 	static function main(){
 		// connect
-		var db = mongoose.connect("mongodb://localhost/test_mongoose");
+		var db = new js.npm.mongoose.Mongoose();
+		db.connect("mongodb://localhost/test_mongoose");
+		
 		// build the model
 		var stuff = StuffManager.build(db, "Stuff");
 		

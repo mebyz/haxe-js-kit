@@ -16,4 +16,7 @@ implements npm.Package.Require<"mongoose","^4.2.2"> {
 	static function __init__() : Void 
 		mongoose = untyped Mongoose;
 	
+	public static inline function emit<K, V>(key : K, value : V) : Void {
+		untyped __js__('emit')( key, value );
+	}
 }

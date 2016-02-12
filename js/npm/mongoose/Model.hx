@@ -117,7 +117,7 @@ extern class TModels<T,M:TModel<T>> {
 	@:overload( function( conditions : {} , update : {} ) : Query<Array<M>> {} )
 	public function update( conditions : {} , update : {} , options : ModelUpdateOptions , callback : ModelUpdateCallback ) : Query<Array<M>>;
 
-	public function mapReduce( o : ModelMapReduce , callback : Callback2<Array<M>,{}> ) : Void;
+	public function mapReduce<M, R>( o : ModelMapReduce<M, R> , callback : Callback2<Array<R>,{}> ) : Void;
 
 	@:overload( function( c1 : {} , c2 : {} , c3 : {} , options : {} , callback : Callback<Array<{}>> ) : Void {} )
 	@:overload( function( c1 : {} , c2 : {} , options : {} , callback : Callback<Array<{}>> ) : Void {} )
@@ -133,15 +133,17 @@ extern class TModels<T,M:TModel<T>> {
 
 }
 
-typedef ModelMapReduce = {
+typedef ModelMapReduce<M, R> = {
 	map : Void->Void,
-	reduce : String->Array<Dynamic>->Void,
+	reduce : String->Array<M>->R,
 	?query : {},
+	?sort : {},
 	?limit : Int,
 	?keeptemp : Bool,
 	?finalize : Void->Void,
 	?scope : {},
 	?jsMode : Bool,
 	?verbose : Bool,
+	?readPreference : String,
 	?out : {}
 }

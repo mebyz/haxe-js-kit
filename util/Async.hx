@@ -19,9 +19,16 @@ class AsyncBuilder {
 	#if macro
 
 		public static inline var asyncMeta = "async";
+		public static inline var doneMeta = ":asyncDone";
 
 		static function build(){
 			var fields : Array<Field> = haxe.macro.Context.getBuildFields();
+
+			var currentClass = Context.getLocalClass().get();
+			if (currentClass.meta.has(doneMeta)) {
+				return fields;
+			}
+			currentClass.meta.add(doneMeta, [], currentClass.pos);
 
 			for( f in fields ){
 				switch( f.kind ){

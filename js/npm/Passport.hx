@@ -20,6 +20,7 @@ typedef PassportInfo = Dynamic;
 extern class Passport 
 implements npm.Package.Require<"passport","*">
 {
+	@:overload(function( modes:Array<String> , ?options : PassportAuthenticateOptions , ?cb : Null<Dynamic> -> Null<PassportUser> -> Null<PassportInfo> -> Void ) : Middleware {})
 	public static function authenticate(mode:String , ?options : PassportAuthenticateOptions , ?cb : Null<Dynamic> -> Null<PassportUser> -> Null<PassportInfo> -> Void ) : Middleware;
 	@:overload(function( name : String, strategy : js.npm.passport.Strategy ) : Void {})
 	public static function use( strategy : js.npm.passport.Strategy ) : Void;

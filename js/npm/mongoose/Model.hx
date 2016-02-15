@@ -1,5 +1,6 @@
 package js.npm.mongoose;
 
+import haxe.extern.Rest;
 import js.support.Callback;
 import js.support.Error;
 
@@ -61,6 +62,7 @@ extern class TModels<T,M:TModel<T>> {
 
 	@:overload( function ( conditions : {} , fields : String , callback : Callback<Array<M>> ): Query<Array<M>> {} )
 	@:overload( function ( conditions : {} , fields : String , options : {} , ?callback : Callback<Array<Model<T>>> ): Query<Array<M>> {} )
+	@:overload( function ( conditions : {} , fields : Null<{}> , ?callback : Callback<Array<M>> ): Query<Array<M>> {} )
 	@:overload( function ( conditions : {} , fields : Null<{}> , options : {} , ?callback : Callback<Array<M>> ): Query<Array<M>> {} )
 	public function find( ?conditions : {} , ?callback : Callback<Array<M>> ): Query<Array<M>>; // Query<Model<T>>
 
@@ -119,6 +121,9 @@ extern class TModels<T,M:TModel<T>> {
 
 	public function mapReduce<M, R>( o : ModelMapReduce<M, R> , callback : Callback2<Array<R>,{}> ) : Void;
 
+	@:overload( function() : Aggregate<M> {} )
+	@:overload( function( commands : Rest<{}> ) : Aggregate<M> {} )
+	@:overload( function( commands : Array<{}> ) : Aggregate<M> {} )
 	@:overload( function( c1 : {} , c2 : {} , c3 : {} , options : {} , callback : Callback<Array<{}>> ) : Void {} )
 	@:overload( function( c1 : {} , c2 : {} , options : {} , callback : Callback<Array<{}>> ) : Void {} )
 	@:overload( function( commands : {} , options : {} , callback : Callback<Array<{}>> ) : Void {} )

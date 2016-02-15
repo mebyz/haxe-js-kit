@@ -1,7 +1,7 @@
 package js.npm.mongoose;
 
 extern class SchemaType
-implements npm.Package.RequireNamespace<"mongoose","^4.0.0"> {
+implements npm.Package.RequireNamespace<"mongoose","^4.3.3"> {
 	public var path (default,null) : String;
 	public var instance (default,null) : Dynamic;
 	public var validators (default,null) : Array<Dynamic>;

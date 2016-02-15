@@ -21,7 +21,7 @@ typedef ModelUpdateCallback = Callback1<{
 @:native("Model")
 extern class TModel<T>
 extends Document<T>
-implements npm.Package.RequireNamespace<"mongoose","^4.0.0"> 
+implements npm.Package.RequireNamespace<"mongoose","^4.3.3"> 
 {
 
 	public var db : Connection;

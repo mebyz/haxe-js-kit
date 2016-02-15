@@ -1,7 +1,7 @@
 package js.npm.mongoose;
 
 extern class Schema<T>
-implements npm.Package.RequireNamespace<"mongoose","^4.0.0"> {
+implements npm.Package.RequireNamespace<"mongoose","^4.3.3"> {
 
 	public static var reserved : Dynamic<Int>;
 	public static var indexTypes (default,null) : Array<String>;

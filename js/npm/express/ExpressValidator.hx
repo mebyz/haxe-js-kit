@@ -92,6 +92,7 @@ class SanitizeMethods {
 	public inline function toBoolean(strict:Bool = false) : SanitizeMethods { return untyped toBoolean(strict); }
 	public inline function toInt(?base:Int) : SanitizeMethods { return untyped toInt(base); }
 	public inline function toFloat() : SanitizeMethods { return untyped toFloat(); }
+	public inline function toDate() : SanitizeMethods { return untyped toDate(); }
 	public inline function trim(?customChars:String) : SanitizeMethods { return untyped trim(customChars); }
 	public inline function ltrim(?customChars:String) : SanitizeMethods { return untyped ltrim(customChars); }
 	public inline function rtrim(?customChars:String) : SanitizeMethods { return untyped rtrim(customChars); }

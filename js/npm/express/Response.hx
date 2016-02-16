@@ -24,6 +24,8 @@ extends ServerResponse {
 
 	function status( code : Int ) : Response;
 	
+	@:overload( function( field : String, values : Array<String> ) : Void {} )
+	function append( field : String, value : String ) : Void;
 	@:overload( function( values : Dynamic<String> ) : Response {} )
 	function set( field : String , value : String ) : Response;
 

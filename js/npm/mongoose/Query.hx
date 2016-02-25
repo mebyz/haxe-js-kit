@@ -25,42 +25,61 @@ extern class Query<Q> {
 	public function nor( array : Array<{}> ) : Query<Q>;
 	public function and( array : Array<{}> ) : Query<Q>;
 
-	public function gt( ?path : String , val : Dynamic ) : Query<Q>;
-	public function gte( ?path : String , val : Dynamic ) : Query<Q>;
-	public function lt( ?path : String , val : Dynamic ) : Query<Q>;
-	public function lte( ?path : String , val : Dynamic ) : Query<Q>;
-	public function ne( ?path : String , val : Dynamic ) : Query<Q>;
-	public inline function in_( ?path : String , val : Dynamic ) : Query<Q> {
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function gt( path : String , val : Dynamic ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function gte( path : String , val : Dynamic ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function lt( path : String , val : Dynamic ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function lte( path : String , val : Dynamic ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function ne( path : String , val : Dynamic ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public inline function in_( path : String , val : Dynamic ) : Query<Q> {
 		return if( path == null )
 			untyped this["in"](val);
 		else
 			untyped this["in"](path,val);
 
 	}
-
-	public function nin( ?path : String , val : Dynamic ) : Query<Q>;
-	public function all( ?path : String , val : Dynamic ) : Query<Q>;
-	public function size( ?path : String , val : Dynamic ) : Query<Q>;
-	public function regex( ?path : String , val : Dynamic ) : Query<Q>;
-	public function maxDistance( ?path : String , val : Dynamic ) : Query<Q>;
-	public function near( ?path : String , val : Dynamic ) : Query<Q>;
-	public function nearSphere( ?path : String , val : Dynamic ) : Query<Q>;
-	public function mod( ?path : String , val : Dynamic ) : Query<Q>;
-	public function elemMatch( ?path : String , val : Dynamic ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function nin( path : String , val : Dynamic ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function all( path : String , val : Dynamic ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function size( path : String , val : Dynamic ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function regex( path : String , val : Dynamic ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function maxDistance( path : String , val : Dynamic ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function near( path : String , val : Dynamic ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function nearSphere( path : String , val : Dynamic ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function mod( path : String , val : Dynamic ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function elemMatch( path : String , val : Dynamic ) : Query<Q>;
 
 	public var within (default,null) : QueryGeo;
 	public var intersects (default,null) : QueryGeo;
 
-	public function box( ?path : String , val : Dynamic ) : Query<Q>;
-	public function center( ?path : String , val : Dynamic , ?opts : {} ) : Query<Q>;
-	public function centerSphere( ?path : String , val : Dynamic ) : Query<Q>;
-	public function polygon( ?path : String , val : Dynamic ) : Query<Q>;
-	public function geometry( ?path : String , val : Dynamic ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function box( path : String , val : Dynamic ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function center( path : String , val : Dynamic , ?opts : {} ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function centerSphere( path : String , val : Dynamic ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function polygon( path : String , val : Dynamic ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function geometry( path : String , val : Dynamic ) : Query<Q>;
 
 	@:overload( function( arg : String ) : Query<Q> {} )
 	public function select( arg : {} ) : Query<Q>;
-
-	public function slice( ?path : String , val : Dynamic ) : Query<Q>;
+	@:overload( function (val : Dynamic) : Query<Q> {} )
+	public function slice( path : String , val : Dynamic ) : Query<Q>;
 
 	@:overload( function( arg : String ) : Query<Q> {} )
 	public function sort( arg : {} ) : Query<Q>;

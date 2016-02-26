@@ -9,7 +9,7 @@ typedef Profile = {
 		givenName : String,
 		middleName : String
 	},
-	email : Array<{	
+	emails : Array<{	
 		value : String,
 		type : String
 	}>,

@@ -73,6 +73,13 @@ class AsyncBuilder {
 						if( v.expr == null ){
 							args.push(v);	
 						}else{
+							var transformDefault = function() {
+								var w = transform( v.expr , block );
+								v.expr = w.expr;
+								block = w.block;
+								newExprs.push( { expr : EVars([v]), pos : e.pos } );
+							}
+							
 							switch( v.expr.expr ){
 								case EMeta(s,em) :
 									if( s.name == asyncMeta ){
@@ -110,16 +117,16 @@ class AsyncBuilder {
 												} );
 												newExprs.push(v.expr);
 												
+											case EDisplay( _, _ ) :
+												transformDefault();
+												
 											default :
 												throw "invalid";
 										}
 									}
 
 								default:
-									var w = transform( v.expr , block );
-									v.expr = w.expr;
-									block = w.block;
-									newExprs.push( { expr : EVars([v]), pos : e.pos } );
+									transformDefault();
 							}
 						}
 						

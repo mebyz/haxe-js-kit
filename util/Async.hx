@@ -85,7 +85,11 @@ class AsyncBuilder {
 									if( s.name == asyncMeta ){
 										args.push(v);
 										hasAsync = true;
-						
+
+										// Iterate the em expression, in case
+										// there are @async calls inside it.
+										em.iter(transform.bind(_, block));
+
 										switch( em.expr ){
 									
 											case ECall( e1 , params ) :

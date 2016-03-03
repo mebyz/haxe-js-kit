@@ -94,10 +94,10 @@ extern class Collection
 	// Bulk importing documents
 
 	// Unfortunately import is a reserved word, so this method has to be static.
-	@:overload(function(collection : Collection, data : Array<{}>, cb : ArangoCallback<CollectionImportResult>) : Void {})
-	@:overload(function(collection : Collection, data : Array<{}>, opts : {}, cb : ArangoCallback<CollectionImportResult>) : Void {})
-	@:overload(function(collection : Collection, data : Array<Array<{}>>, cb : ArangoCallback<CollectionImportResult>) : Void {})
-	public static inline function importData(collection : Collection, data : Array<Array<{}>>, opts : {}, cb : ArangoCallback<CollectionImportResult>) : Void {
+	@:overload(function<T>(collection : Collection, data : Array<T>, cb : ArangoCallback<CollectionImportResult>) : Void {})
+	@:overload(function<T>(collection : Collection, data : Array<T>, opts : {}, cb : ArangoCallback<CollectionImportResult>) : Void {})
+	@:overload(function<T>(collection : Collection, data : Array<Array<T>>, cb : ArangoCallback<CollectionImportResult>) : Void {})
+	public static inline function importData<T>(collection : Collection, data : Array<Array<T>>, opts : {}, cb : ArangoCallback<CollectionImportResult>) : Void {
 		untyped collection['import'](data, opts, cb);
 	}
 	

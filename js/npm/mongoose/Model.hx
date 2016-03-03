@@ -67,11 +67,13 @@ extern class TModels<T,M:TModel<T>> {
 	public function find( ?conditions : {} , ?callback : Callback<Array<M>> ): Query<Array<M>>; // Query<Model<T>>
 
 	@:overload( function( id : Dynamic , callback : Callback<Null<M>> ) : Void {} )
+	@:overload( function( id : Dynamic , options : {} , ?callback : Callback<Null<M>> ) : Query<M> {} )
 	@:overload( function ( id : Dynamic , fields : String , options : {} , ?callback : Callback<Null<M>> ): Query<M> {} )
 	@:overload( function ( id : Dynamic , fields : Null<{}> , options : {} , ?callback : Callback<Null<M>> ): Query<M> {} )
 	public function findById( id : Dynamic ): Query<M>; // Query<Model<T>>
 
 	@:overload( function( conditions : {} , callback : Callback<Null<M>> ) : Void {} )
+	@:overload( function( conditions : {} , options : {} , ?callback : Callback<Null<M>> ) : Query<M> {} )
 	@:overload( function ( conditions : {}  , fields : String , options : {} , ?callback : Callback<Null<M>> ): Query<M> {} )
 	@:overload( function ( conditions : {} , fields : Null<{}> , options : {} , ?callback : Callback<Null<M>> ): Query<M> {} )
 	public function findOne( ?conditions : {} ): Query<M>; // Query<M>

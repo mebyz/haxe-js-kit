@@ -1,7 +1,6 @@
 package js.npm.arangojs;
 
 extern class Cursor<T>
-//implements npm.Package.Require<"arangodb", "^4.3.0">
 {
 	public var count(default, never) : Null<Int>;
 	

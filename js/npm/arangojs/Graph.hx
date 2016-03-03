@@ -10,7 +10,6 @@ typedef EdgeDefinition = {
 }
 
 extern class Graph 
-//implements npm.Package.Require<"arangodb", "^4.3.0">
 {
 	public function get(cb : ArangoCallback<{}>) : Void;
 	public function create(properties : {}, cb : ArangoCallback<{}>) : Void;

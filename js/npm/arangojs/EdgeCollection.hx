@@ -2,7 +2,6 @@ package js.npm.arangojs;
 import js.support.Either;
 
 extern class EdgeCollection extends Collection
-//implements npm.Package.Require<"arangodb", "^4.3.0">
 {
 	public function edge<T>(documentHandle : Either<String, {}>, cb : ArangoCallback<T>) : Void;
 	@:overload(function<T>(data : T, fromId : Either<String, {}>, toId : Either<String, {}>, cb : ArangoCallback<{}>) : Void {})

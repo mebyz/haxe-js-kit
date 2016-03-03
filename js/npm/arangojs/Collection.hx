@@ -17,14 +17,13 @@ typedef CollectionImportResult = {
 	ignored : Int
 }
 
-@:enum abstract CollectionListType(String) to String {
+@:enum abstract CollectionListType(String) from String to String {
 	var id = "id";
 	var key = "key";
 	var path = "path";
 }
 
 extern class Collection
-//implements npm.Package.Require<"arangodb", "^4.3.0">
 {
 	// Getting information about the collection
 

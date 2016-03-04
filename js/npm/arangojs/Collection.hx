@@ -27,42 +27,42 @@ extern class Collection
 {
 	// Getting information about the collection
 
-	public function get(cb : ArangoCallback<{}>) : Void;
-	public function properties(cb : ArangoCallback<{}>) : Void;
+	public function get(cb : ArangoCallback<Dynamic>) : Void;
+	public function properties(cb : ArangoCallback<Dynamic>) : Void;
 	public function count(cb : ArangoCallback<Int>) : Void;
-	public function figures(cb : ArangoCallback<{}>) : Void;
+	public function figures(cb : ArangoCallback<Dynamic>) : Void;
 	public function revision(cb : ArangoCallback<String>) : Void;	
-	@:overload(function(cb : ArangoCallback<{}>) : Void {})
-	public function checksum(opts : {}, cb : ArangoCallback<{}>) : Void;
+	@:overload(function(cb : ArangoCallback<Dynamic>) : Void {})
+	public function checksum(opts : {}, cb : ArangoCallback<Dynamic>) : Void;
 
 	// Manipulating the collection
 
-	@:overload(function(cb : ArangoCallback<{}>) : Void {})
-	public function create(properties : {}, cb : ArangoCallback<{}>) : Void;
-	@:overload(function(cb : ArangoCallback<{}>) : Void {})
-	public function load(count : Bool, cb : ArangoCallback<{}>) : Void;
-	public function unload(cb : ArangoCallback<{}>) : Void;
-	public function setProperties(properties : {}, cb : ArangoCallback<{}>) : Void;
-	public function rename(name : String, cb : ArangoCallback<{}>) : Void;
-	public function rotate(cb : ArangoCallback<{}>) : Void;
-	public function truncate(cb : ArangoCallback<{}>) : Void;
-	public function drop(cb : ArangoCallback<{}>) : Void;
+	@:overload(function(cb : ArangoCallback<Dynamic>) : Void {})
+	public function create(properties : {}, cb : ArangoCallback<Dynamic>) : Void;
+	@:overload(function(cb : ArangoCallback<Dynamic>) : Void {})
+	public function load(count : Bool, cb : ArangoCallback<Dynamic>) : Void;
+	public function unload(cb : ArangoCallback<Dynamic>) : Void;
+	public function setProperties(properties : {}, cb : ArangoCallback<Dynamic>) : Void;
+	public function rename(name : String, cb : ArangoCallback<Dynamic>) : Void;
+	public function rotate(cb : ArangoCallback<Dynamic>) : Void;
+	public function truncate(cb : ArangoCallback<Dynamic>) : Void;
+	public function drop(cb : ArangoCallback<Dynamic>) : Void;
 
 	// Manipulating indexes
 
-	public function createIndex(details : {}, cb : ArangoCallback<{}>) : Void;
-	public function createCapConstraint(size : { }, cb : ArangoCallback<{}>) : Void;
-	@:overload(function(fields : Array<String>, cb : ArangoCallback<{}>) : Void {})
-	public function createHashIndex(fields : Array<String>, opts : {}, cb : ArangoCallback<{}>) : Void;
-	@:overload(function(fields : Array<String>, cb : ArangoCallback<{}>) : Void {})
-	public function createSkipList(fields : Array<String>, opts : {}, cb : ArangoCallback<{}>) : Void;
-	@:overload(function(fields : Array<String>, cb : ArangoCallback<{}>) : Void {})
-	public function createGeoIndex(fields : Array<String>, opts : {}, cb : ArangoCallback<{}>) : Void;
-	@:overload(function(fields : Array<String>, cb : ArangoCallback<{}>) : Void {})
-	public function createFulltextIndex(fields : Array<String>, minLength : Int, cb : ArangoCallback<{}>) : Void;
-	public function index(indexHandle : String, cb : ArangoCallback<{}>) : Void;
-	public function indexes(cb : ArangoCallback<Array<{}>>) : Void;
-	public function dropIndex(indexHandle : String, cb : ArangoCallback<{}>) : Void;
+	public function createIndex(details : {}, cb : ArangoCallback<Dynamic>) : Void;
+	public function createCapConstraint(size : { }, cb : ArangoCallback<Dynamic>) : Void;
+	@:overload(function(fields : Array<String>, cb : ArangoCallback<Dynamic>) : Void {})
+	public function createHashIndex(fields : Array<String>, opts : {}, cb : ArangoCallback<Dynamic>) : Void;
+	@:overload(function(fields : Array<String>, cb : ArangoCallback<Dynamic>) : Void {})
+	public function createSkipList(fields : Array<String>, opts : {}, cb : ArangoCallback<Dynamic>) : Void;
+	@:overload(function(fields : Array<String>, cb : ArangoCallback<Dynamic>) : Void {})
+	public function createGeoIndex(fields : Array<String>, opts : {}, cb : ArangoCallback<Dynamic>) : Void;
+	@:overload(function(fields : Array<String>, cb : ArangoCallback<Dynamic>) : Void {})
+	public function createFulltextIndex(fields : Array<String>, minLength : Int, cb : ArangoCallback<Dynamic>) : Void;
+	public function index(indexHandle : String, cb : ArangoCallback<Dynamic>) : Void;
+	public function indexes(cb : ArangoCallback<Array<Dynamic>>) : Void;
+	public function dropIndex(indexHandle : String, cb : ArangoCallback<Dynamic>) : Void;
 
 	// Simple queries
 
@@ -77,15 +77,15 @@ extern class Collection
 	public function byExample<T>(example : {}, opts : {}, cb : ArangoCallback<Cursor<T>>) : Void;
 	public function firstExample<T>(example : {}, cb : ArangoCallback<T>) : Void;
 
-	@:overload(function(example : {}, cb : ArangoCallback<{}>) : Void {})
-	public function removeByExample(example : {}, opts : {}, cb : ArangoCallback<{}>) : Void;
-	@:overload(function(example : {}, newValue : {}, cb : ArangoCallback<{}>) : Void {})
-	public function replaceByExample(example : {}, newValue : {}, opts : {}, cb : ArangoCallback<{}>) : Void;
-	@:overload(function(example : {}, newValue : {}, cb : ArangoCallback<{}>) : Void {})
-	public function updateByExample(example : {}, newValue : {}, opts : {}, cb : ArangoCallback<{}>) : Void;
-	public function lookupByKeys(keys : Array<String>, cb : ArangoCallback<{}>) : Void;
-	@:overload(function(keys : Array<String>, cb : ArangoCallback<{}>) : Void {})
-	public function removeByKeys(keys : Array<String>, opts : {}, cb : ArangoCallback<{}>) : Void;
+	@:overload(function(example : {}, cb : ArangoCallback<Dynamic>) : Void {})
+	public function removeByExample(example : {}, opts : {}, cb : ArangoCallback<Dynamic>) : Void;
+	@:overload(function(example : {}, newValue : {}, cb : ArangoCallback<Dynamic>) : Void {})
+	public function replaceByExample(example : {}, newValue : {}, opts : {}, cb : ArangoCallback<Dynamic>) : Void;
+	@:overload(function(example : {}, newValue : {}, cb : ArangoCallback<Dynamic>) : Void {})
+	public function updateByExample(example : {}, newValue : {}, opts : {}, cb : ArangoCallback<Dynamic>) : Void;
+	public function lookupByKeys(keys : Array<String>, cb : ArangoCallback<Dynamic>) : Void;
+	@:overload(function(keys : Array<String>, cb : ArangoCallback<Dynamic>) : Void {})
+	public function removeByKeys(keys : Array<String>, opts : {}, cb : ArangoCallback<Dynamic>) : Void;
 
 	@:overload(function<T>(fieldName : String, query : String, cb : ArangoCallback<Cursor<T>>) : Void {})
 	public function fulltext<T>(fieldName : String, query : String, opts : {}, cb : ArangoCallback<Cursor<T>>) : Void;

@@ -26,35 +26,35 @@ implements npm.Package.RequireNamespace<"arangojs", "^4.3.0">
 	// Manipulating databases
 
 	public function useDatabase(databaseName : String) : Database;
-	@:overload(function(databaseName : String, cb : ArangoCallback<{}>) : Void {})
-	public function createDatabase(databaseName : String, users : Array<Dynamic>, cb : ArangoCallback<{}>) : Void;
-	public function get(cb : ArangoCallback<{}>) : Void;
+	@:overload(function(databaseName : String, cb : ArangoCallback<Dynamic>) : Void {})
+	public function createDatabase(databaseName : String, users : Array<Dynamic>, cb : ArangoCallback<Dynamic>) : Void;
+	public function get(cb : ArangoCallback<Dynamic>) : Void;
 	public function listDatabases(cb : ArangoCallback<Array<String>>) : Void;
 	public function listUserDatabases(cb : ArangoCallback<Array<String>>) : Void;
-	public function dropDatabase(databaseName : String, cb : ArangoCallback<{}>) : Void;
-	@:overload(function(cb : ArangoCallback<{}>) : Void {})
-	public function truncate(excludeSystem : Bool, cb : ArangoCallback<{}>) : Void;
+	public function dropDatabase(databaseName : String, cb : ArangoCallback<Dynamic>) : Void;
+	@:overload(function(cb : ArangoCallback<Dynamic>) : Void {})
+	public function truncate(excludeSystem : Bool, cb : ArangoCallback<Dynamic>) : Void;
 
 	// Accessing collections
 	
 	public function collection(collectionName : String) : DocumentCollection;
 	public function edgeCollection(collectionName : String) : EdgeCollection;
-	@:overload(function(cb : ArangoCallback<Array<{}>>) : Void {})
-	public function listCollections(excludeSystem : Bool, cb : ArangoCallback<Array<{}>>) : Void;
+	@:overload(function(cb : ArangoCallback<Array<Dynamic>>) : Void {})
+	public function listCollections(excludeSystem : Bool, cb : ArangoCallback<Array<Dynamic>>) : Void;
 	@:overload(function(cb : ArangoCallback<Array<Collection>>) : Void {})
 	public function collections(excludeSystem : Bool, cb : ArangoCallback<Array<Collection>>) : Void;
 	
 	// Accessing graphs
 
 	public function graph(graphName : String) : Graph;
-	public function listGraphs(cb : ArangoCallback<Array<{}>>) : Void;
+	public function listGraphs(cb : ArangoCallback<Array<Dynamic>>) : Void;
 	public function graphs(cb : ArangoCallback<Array<Graph>>) : Void;
 
 	// Transactions
 	
-	@:overload(function(collections : Either3<String, {}, Array<String>>, action : String, cb : ArangoCallback<{}>) : Void {})
-	@:overload(function(collections : Either3<String, {}, Array<String>>, action : String, params : Array<{}>, cb : ArangoCallback<{}>) : Void {})
-	public function transaction(collections : Either3<String, {}, Array<String>>, action : String, params : Array<{}>, lockTimeout : Int, cb : ArangoCallback<{}>) : Void;
+	@:overload(function(collections : Either3<String, {}, Array<String>>, action : String, cb : ArangoCallback<Dynamic>) : Void {})
+	@:overload(function(collections : Either3<String, {}, Array<String>>, action : String, params : Array<{}>, cb : ArangoCallback<Dynamic>) : Void {})
+	public function transaction(collections : Either3<String, {}, Array<String>>, action : String, params : Array<{}>, lockTimeout : Int, cb : ArangoCallback<Dynamic>) : Void;
 	
 	// Queries
 	// aqlQuery macro
@@ -65,10 +65,10 @@ implements npm.Package.RequireNamespace<"arangojs", "^4.3.0">
 
 	// Managing AQL user functions
 	
-	public function listFunctions(cb : ArangoCallback<Array<{}>>) : Void;
-	public function createFunction(name : String, code : String, cb : ArangoCallback<{}>) : Void;
-	@:overload(function(name : String, cb : ArangoCallback<{}>) : Void {})
-	public function dropFunction(name : String, group : String, cb : ArangoCallback<{}>) : Void;
+	public function listFunctions(cb : ArangoCallback<Array<Dynamic>>) : Void;
+	public function createFunction(name : String, code : String, cb : ArangoCallback<Dynamic>) : Void;
+	@:overload(function(name : String, cb : ArangoCallback<Dynamic>) : Void {})
+	public function dropFunction(name : String, group : String, cb : ArangoCallback<Dynamic>) : Void;
 	
 	// Arbitrary HTTP routes
 	

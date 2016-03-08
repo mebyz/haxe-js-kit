@@ -19,9 +19,9 @@ typedef Aqb = String;
 extern class Database
 implements npm.Package.RequireNamespace<"arangojs", "^4.3.0">
 {
+	@:overload(function() : Database {})
 	@:overload(function(config : String) : Database {})
-	@:overload(function(config : DatabaseOptions) : Database {})
-	public function new();
+	public function new(config : DatabaseOptions);
 
 	// Manipulating databases
 
@@ -72,6 +72,7 @@ implements npm.Package.RequireNamespace<"arangojs", "^4.3.0">
 	
 	// Arbitrary HTTP routes
 	
+	@:overload(function() : Route {})
 	@:overload(function(headers : {}) : Route {})
 	@:overload(function(path : String) : Route {})
 	public function route(path : String, headers : {}) : Route;

@@ -168,4 +168,7 @@ implements npm.Package.Require < "sequelize", "^3.0.0" > {
 	function drop(options: { } ):Promise;
 	function authenticate():Promise;
 	function transaction(?f:Transaction->Promise, ?options: TransactionOptions ):Promise;
+	
+	@:native("import")
+	function import_(s:String) : Dynamic;
 }
